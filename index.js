@@ -1,4 +1,4 @@
-class MyComponent extends React.Component {
+class Counter extends React.Component {
   constructor(props) {
     console.log('This is the constructor running', props)
     super(props)
@@ -10,13 +10,13 @@ class MyComponent extends React.Component {
     console.log('My component has landed!')
   }
   componentDidUpdate() {
-    console.log('THis component has changes in props or state')
+    console.log('This component has changes in props or state')
   }
   componentWillUnmount() {
     console.log('Component is being removed from the DOM')
   }
   handleClick = () => {
-    console.log('HI IM being clicked!')
+    console.log('Hi Im being clicked!')
     this.setState({
       value: this.state.value + 1
     })
@@ -24,12 +24,11 @@ class MyComponent extends React.Component {
   render () {
     console.log('This is the render being called', this.props)
     return <div>
-      Hello {this.props.name}
       <h1>{this.state.value}</h1>
-      <button type="button" onClick={this.handleClick}>Click Me</button>
+      <button type="button" onClick={this.handleClick}>Increment</button>
     </div>
 
   }
 }
 
-ReactDOM.render(<MyComponent name="banana"/>, document.getElementById('root'))
+ReactDOM.render(<Counter />, document.getElementById('root'))
